@@ -448,9 +448,9 @@
                       }
 
                       if (targetNode.collapsed) {
-                        if (scope.expandOnHover === true || (angular.isNumber(scope.expandOnHover) && scope.expandOnHover === 0) && targetNode.depth() !== dragInfo.source.depth()) {
+                        if (scope.expandOnHover === true || (angular.isNumber(scope.expandOnHover) && scope.expandOnHover === 0) && !angular.isDefined(dragInfo.source.$modelValue.children)) {
                           targetNode.collapsed = false;
-                        } else if (scope.expandOnHover !== false && angular.isNumber(scope.expandOnHover) && scope.expandOnHover > 0 && targetNode.depth() !== dragInfo.source.depth()) {
+                        } else if (scope.expandOnHover !== false && angular.isNumber(scope.expandOnHover) && scope.expandOnHover > 0 && !angular.isDefined(dragInfo.source.$modelValue.children)) {
                           if (angular.isUndefined(scope.expandTimeoutOn)) {
                             scope.expandTimeoutOn = targetNode.$id;
 
